@@ -1,0 +1,129 @@
+2019-02-28 16:42:16
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>�й��������� ������������</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<!--�ڶ�����css�ļ�Ƕ��(ʾ����������������ļ�)-->
+<link href="/V5/css5/jh.css" rel="stylesheet" type="text/css" />
+<link href="/V5/css5/ccb.css" rel="stylesheet" type="text/css" />
+<link href="/V5/css5/tx.css" rel="stylesheet" type="text/css" />
+<link href="/V5/css5/B.css" rel="stylesheet" type="text/css" />
+<!--��������js�ļ�Ƕ��(ʾ����������������ļ�)-->
+<script language="JavaScript" src="/V5/js5/jh.js"></script>
+<script language="javascript" src="/V5/js5/ccb.js"></script>
+<script language="javascript" src="/V5/js5/ccb5.js"></script> 
+
+</head>
+
+<body  bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" >
+
+<div class="area_title"> ��Ϣ��ʾ </div>         
+			
+	<div class="area_content">
+	
+	<div class="step_off">
+		<div class="text_notice">
+			<div class="text_big text_bold">��Ϣ��ʾ</div>
+			ϵͳæ�����Ժ�����
+		    <div class="text_big">
+			<br></div>
+			
+		</div>
+	</div><br />	
+	</div>
+
+<script language="JavaScript">
+function sizeChangeForLogin(heigetValue) 
+{ 
+    if((typeof parent.document.all.fclogin) != "undefined"&&parent.document.all.fclogin!=null&&document!=null) {
+		if(arguments.length==1){
+			parent.document.all.fclogin.height=heigetValue;
+		}else{
+			parent.document.all.fclogin.height=document.body.scrollHeight; 
+		}
+	}
+}
+
+sizeChangeForLogin();
+</script>
+
+</body>
+</html>
+
+
+2019-02-28 16:56:59
+进入pay/ccb/notice
+
+2019-02-28 16:57:26
+进入pay/ccb/notice inputstr：
+
+2019-02-28 16:58:45
+进入pay/ccb/notice
+
+2019-02-28 16:58:51
+进入pay/ccb/notice inputstr：
+
+2019-02-28 16:59:26
+进入pay/ccb/notice
+
+2019-02-28 16:59:52
+进入pay/ccb/notice inputstr：ORDERID=105000148164313190228144018226
+
+2019-02-28 17:01:33
+进入pay/ccb/notice
+
+2019-02-28 17:01:37
+进入pay/ccb/notice inputstr：{"ORDERID":"105000148164313190228144018226"}
+
+2019-02-28 17:04:26
+进入pay/ccb/notice
+
+2019-02-28 17:04:28
+进入pay/ccb/notice inputstr：
+
+2019-02-28 17:05:05
+进入pay/ccb/notice
+
+2019-02-28 17:05:06
+进入pay/ccb/notice inputstr：{"ORDERID":"105000148164313190228144018226"}
+
+2019-02-28 17:06:09
+进入pay/ccb/notice
+
+2019-02-28 17:06:35
+进入pay/ccb/notice inputstr：ORDERID=105000148164313190228144018226
+
+2019-02-28 17:07:07
+进入pay/ccb/notice
+
+2019-02-28 17:07:14
+进入pay/ccb/notice inputstr：{"ORDERID":"105000148164313190228144018226"}
+
+2019-02-28 17:11:02
+进入pay/ccb/notice
+
+2019-02-28 17:11:06
+进入pay/ccb/notice inputstr：
+
+2019-02-28 17:11:30
+进入pay/ccb/notice
+
+2019-02-28 17:14:57
+进入pay/ccb/notice inputstr：ORDERID=105000148164313190228144018226
+
+2019-02-28 17:15:09
+进入pay/ccb/notice
+
+2019-02-28 17:15:30
+进入pay/ccb/notice inputstr：ORDERID=105000148164313190228144018226&POSID=11111124
+
+2019-02-28 17:16:35
+进入pay/ccb/notice
+
+2019-02-28 17:16:37
+进入pay/ccb/notice inputstr：{"ORDERID":"105000148164313190228144018226",
+"POSID":"123123"
+	
+}
+
