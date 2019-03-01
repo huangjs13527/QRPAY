@@ -1,0 +1,89 @@
+2019-03-01 09:15:29
+进入pay/ccb/notice
+
+2019-03-01 09:15:45
+进入pay/ccb/notice PayNoticeData：
+
+2019-03-01 09:17:19
+进入pay/ccb/notice
+
+2019-03-01 09:18:06
+进入pay/ccb/notice PayNoticeData：ORDERID%3D105000148164313190228144018226%26POSID%3D11111124=
+
+2019-03-01 09:18:15
+进入pay/ccb/notice
+
+2019-03-01 09:18:41
+进入pay/ccb/notice PayNoticeData：ORDERID%3D105000148164313190228144018226%26POSID%3D11111124=
+
+2019-03-01 09:19:01
+进入pay/ccb/notice
+
+2019-03-01 09:19:07
+进入pay/ccb/notice PayNoticeData：ORDERID%3D105000148164313190228144018226%26POSID%3D11111124=
+
+2019-03-01 09:19:21
+进入pay/ccb/notice
+
+2019-03-01 09:19:41
+进入pay/ccb/notice PayNoticeData：ORDERID=105000148164313190228144018226&POSID=11111124
+
+2019-03-01 09:20:45
+进入pay/ccb/notice
+
+2019-03-01 09:21:12
+进入pay/ccb/notice PayNoticeData：----------------------------542157455531901865279923
+Content-Disposition: form-data; name="ORDERID"
+
+123123
+----------------------------542157455531901865279923
+Content-Disposition: form-data; name="POSID"
+
+456456
+----------------------------542157455531901865279923--
+
+
+2019-03-01 09:22:13
+进入pay/ccb/notice
+
+2019-03-01 09:22:27
+进入pay/ccb/notice PayNoticeData：ORDERID=123123&POSID=456456
+
+2019-03-01 09:23:33
+进入pay/ccb/notice
+
+2019-03-01 09:24:13
+进入pay/ccb/notice PayNoticeData：{
+    "ORDERID": "105000148164313190228144018226",
+    "POSID": "123123"
+}
+
+2019-03-01 09:25:01
+进入pay/ccb/notice
+
+2019-03-01 09:35:35
+进入pay/ccb/notice PayNoticeData：<?xml version="1.0" encoding="GB2312" standalone="yes" ?>
+<TX>
+    <REQUEST_SN>0190228182024677</REQUEST_SN>
+    <CUST_ID>105000148164313</CUST_ID>
+    <USER_ID>105000148164313-001</USER_ID>
+    <PASSWORD>jlkj2019</PASSWORD>
+    <TX_CODE>5W1004</TX_CODE>
+    <LANGUAGE>CN</LANGUAGE>
+    <TX_INFO>
+        <MONEY>0.01</MONEY>
+        <ORDER>105000148164313190228144018226</ORDER>
+    </TX_INFO>
+    <SIGN_INFO>1111</SIGN_INFO>
+    <SIGNCERT>1111</SIGNCERT>
+</TX>
+
+2019-03-01 09:44:07
+进入pay/ccb/notice
+
+2019-03-01 09:44:19
+进入pay/ccb/notice PayNoticeData：<?xml version="1.0" encoding="utf-8"?><TX><REQUEST_SN>190301094354013</REQUEST_SN><CUST_ID>105000148164313</CUST_ID><USER_ID>105000148164313-001</USER_ID><PASSWORD>jlkj2019</PASSWORD><TX_CODE>5W1004</TX_CODE><LANGUAGE>CN</LANGUAGE><TX_INFO><MONEY>0.01</MONEY><ORDER>105000148164313190228144018226</ORDER></TX_INFO><SIGN_INFO>1111</SIGN_INFO><SIGNCERT>1111</SIGNCERT></TX>
+
+2019-03-01 09:44:38
+进入pay/ccb/notice
+
