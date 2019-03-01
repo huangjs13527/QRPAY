@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using ECardPass.Project.Infrastructure.XML;
+using Newtonsoft.Json;
 using QRPAY.Models;
 using System;
 using System.Collections.Generic;
@@ -91,6 +92,39 @@ namespace QRPAY.Controllers
             return Content("SUCCESS");
         }
 
+        public void Test()
+        {
+            var tx_info = new RefundRequest_TX_INFO()
+            {
+                MONEY = "0.01",
+                ORDER = "105000148164313190228144018226"
+            };
+            var refundRequest = new RefundRequest()
+            {
+                REQUEST_SN = QRModel.CreateREQUEST_SN(),
+                CUST_ID = QRModel.MERCHANTID,
+                USER_ID = "105000148164313-001",
+                PASSWORD = "jlkj2019",
+                LANGUAGE = "CN",
+                TX_CODE = "5W1004",
+                SIGNCERT = "1111",
+                SIGN_INFO = "1111",
+                TX_INFO = tx_info
+            };
+            string request = XmlHelper.SerializeToXmlStr(refundRequest, false);
+            string returstr = HttpClientUtil.HttpPost("http://localhost:2582/pay/ccb/notice", request, "text/xml");
+
+
+            Dictionary<string, string> dic = new Dictionary<string, string>();
+            dic.Add("ORDERID", "123123");
+            dic.Add("POSID", "456456");
+            string data = string.Empty;
+            foreach (string key in dic.Keys)
+            {
+                data += key + "=" + dic[key] + "&";
+            }
+            string payStr = HttpClientUtil.HttpPost("http://localhost:2582/pay/ccb/notice", data.Trim('&')); //提交网银网关地址
+        }
 
         public ActionResult Index()
         {
