@@ -4,6 +4,8 @@ using QRPAY.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Sockets;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
@@ -50,6 +52,8 @@ namespace QRPAY.Controllers
             HttpContext.Request.InputStream.Read(bytes, 0, bytes.Length);
             string inputstr = Encoding.GetEncoding("utf-8").GetString(bytes);
             LogHelper.Write("进入pay/ccb/notice PayNoticeData：" + inputstr);
+
+            LogHelper.Write("进入pay/ccb/notice model：" + model.BRANCHID);
             if (model != null && model.SUCCESS.Equals("Y", StringComparison.OrdinalIgnoreCase))
             {
                 //回调成功，todo
@@ -76,6 +80,17 @@ namespace QRPAY.Controllers
         [Route("pay/ccb/refund")]
         public ActionResult Refund(string OrderId)
         {
+
+     
+
+
+
+
+
+
+
+
+
             QrDemo qr = new QrDemo();
             var res = qr.Refund(OrderId);
             return Content(res);

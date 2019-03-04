@@ -1,5 +1,4 @@
-﻿using java.lang;
-using java.util;
+﻿using java.util;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +7,9 @@ using Newtonsoft;
 using Newtonsoft.Json;
 using QRPAY.Models;
 using ECardPass.Project.Infrastructure.XML;
+using System.Net;
+using System.Net.Sockets;
+using System.Text;
 
 namespace QRPAY
 {
@@ -31,31 +33,31 @@ namespace QRPAY
 
 
             //MAC字段参与摘要运算的字符串及其顺序
-            StringBuilder tmp = new StringBuilder();
-            tmp.append("MERCHANTID=");
-            tmp.append(QRModel.MERCHANTID);
-            tmp.append("&POSID=");
-            tmp.append(QRModel.POSID);
-            tmp.append("&BRANCHID=");
-            tmp.append(QRModel.BRANCHID);
-            tmp.append("&ORDERID=");
-            tmp.append(ORDERID);
-            tmp.append("&PAYMENT=");
-            tmp.append(PAYMENT);
-            tmp.append("&CURCODE=");
-            tmp.append(CURCODE);
-            tmp.append("&TXCODE=");
-            tmp.append(TXCODE);
-            tmp.append("&REMARK1=");
-            tmp.append(REMARK1);
-            tmp.append("&REMARK2=");
-            tmp.append(REMARK2);
-            tmp.append("&RETURNTYPE=");
-            tmp.append(RETURNTYPE);
-            tmp.append("&TIMEOUT=");
-            tmp.append(TIMEOUT);
-            tmp.append("&PUB=");
-            tmp.append(QRModel.PUB32TR2);
+            System.Text.StringBuilder tmp = new StringBuilder();
+            tmp.Append("MERCHANTID=");
+            tmp.Append(QRModel.MERCHANTID);
+            tmp.Append("&POSID=");
+            tmp.Append(QRModel.POSID);
+            tmp.Append("&BRANCHID=");
+            tmp.Append(QRModel.BRANCHID);
+            tmp.Append("&ORDERID=");
+            tmp.Append(ORDERID);
+            tmp.Append("&PAYMENT=");
+            tmp.Append(PAYMENT);
+            tmp.Append("&CURCODE=");
+            tmp.Append(CURCODE);
+            tmp.Append("&TXCODE=");
+            tmp.Append(TXCODE);
+            tmp.Append("&REMARK1=");
+            tmp.Append(REMARK1);
+            tmp.Append("&REMARK2=");
+            tmp.Append(REMARK2);
+            tmp.Append("&RETURNTYPE=");
+            tmp.Append(RETURNTYPE);
+            tmp.Append("&TIMEOUT=");
+            tmp.Append(TIMEOUT);
+            tmp.Append("&PUB=");
+            tmp.Append(QRModel.PUB32TR2);
 
             //提交的参数
             Dictionary<string, string> dic = new Dictionary<string, string>();
@@ -103,16 +105,39 @@ namespace QRPAY
             {
                 REQUEST_SN = QRModel.CreateREQUEST_SN(),
                 CUST_ID = QRModel.MERCHANTID,
-                USER_ID = "105000148164313-001",
+                USER_ID = "001",
                 PASSWORD = "jlkj2019",
                 LANGUAGE = "CN",
                 TX_CODE = "5W1004",
-                SIGNCERT = "1111",
-                SIGN_INFO = "1111",
                 TX_INFO = tx_info
             };
-            string request = XmlHelper.SerializeToXmlStr(refundRequest, false);
-            string returstr = HttpClientUtil.HttpPost("https://192.168.30.168:9010", request, "text/xml");
+            string request = "<?xml version=\"1.0\" encoding=\"GB2312\" standalone=\"yes\" ?>" + XmlHelper.SerializeToXmlStr(refundRequest, true);
+
+
+
+            int port = 9010;
+            string host = "192.168.30.168";//服务器端ip地址
+            IPAddress ip = IPAddress.Parse(host);
+            IPEndPoint ipe = new IPEndPoint(ip, port);
+            Socket clientSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            clientSocket.Connect(ipe);
+            //send message<?xml version='1.0' encoding='GB2312' standalone='yes' ?>
+            //string sendStr = "<TX><REQUEST_SN>19022818202467701</REQUEST_SN><CUST_ID>105000148164313</CUST_ID><USER_ID>105000148164313-001</USER_ID><PASSWORD>jlkj2019</PASSWORD><TX_CODE>5W1004</TX_CODE><LANGUAGE>CN</LANGUAGE><TX_INFO><MONEY>0.01</MONEY><ORDER>105000148164313190228121021514</ORDER></TX_INFO><SIGN_INFO></SIGN_INFO><SIGNCERT></SIGNCERT></TX>";
+            byte[] sendBytes = Encoding.Default.GetBytes(request);
+            clientSocket.Send(sendBytes);
+
+            //receive message
+            string recStr = "";
+            byte[] recBytes = new byte[4096];
+            int bytes = clientSocket.Receive(recBytes, recBytes.Length, 0);
+            recStr += Encoding.Default.GetString(recBytes, 0, bytes);
+            Console.WriteLine(recStr);
+
+            clientSocket.Close();
+
+
+
+       //    string returstr = HttpClientUtil.HttpPost("https://192.168.30.168:9010", request, "text/xml");
             //退款返回数据
             //var RETURN_CODE = XmlHelper.GetNodeValue(returstr, XmlHelper.XmlType.String, "RETURN_CODE");
             // if (RETURN_CODE.RETURN_CODE.Equals("000000"))
@@ -124,7 +149,7 @@ namespace QRPAY
             //{
             //    //交易成功todo
             //}
-            return returstr;
+            return "";
         }
     }
 
