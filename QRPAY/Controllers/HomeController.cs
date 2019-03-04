@@ -80,17 +80,6 @@ namespace QRPAY.Controllers
         [Route("pay/ccb/refund")]
         public ActionResult Refund(string OrderId)
         {
-
-     
-
-
-
-
-
-
-
-
-
             QrDemo qr = new QrDemo();
             var res = qr.Refund(OrderId);
             return Content(res);
